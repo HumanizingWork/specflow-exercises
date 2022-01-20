@@ -20,22 +20,23 @@ namespace SpecFlowExercises.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Accumulate a fine/fee balance on library cards")]
-    public partial class AccumulateAFineFeeBalanceOnLibraryCardsFeature
+    [NUnit.Framework.DescriptionAttribute("Fine Calculator")]
+    public partial class FineCalculatorFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "accumulate_balance.feature"
+#line 1 "fine_calculator.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Accumulate a fine/fee balance on library cards", "  In order to keep track of what patrons owe", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Fine Calculator", "  Fines need to be calculated accurately so that we’re fair to all our patrons\r\n " +
+                    " while having an incentive to return books on time.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,21 +76,21 @@ namespace SpecFlowExercises.Features
         
         public virtual void FeatureBackground()
         {
-#line 4
-  #line hidden
 #line 5
-    testRunner.Given("a new patron, John, has joined the library", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  #line hidden
+#line 6
+    testRunner.Given("the standard fine per day is $0.25", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Patrons start with $0 balance")]
-        public virtual void PatronsStartWith0Balance()
+        [NUnit.Framework.DescriptionAttribute("No fines for on-time returns")]
+        public virtual void NoFinesForOn_TimeReturns()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Patrons start with $0 balance", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No fines for on-time returns", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 8
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -109,27 +110,27 @@ namespace SpecFlowExercises.Features
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 5
   this.FeatureBackground();
-#line hidden
-#line 8
-    testRunner.When("John checks his account balance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
-    testRunner.Then("the balance should be $0.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("the patron returns a book on time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 10
+    testRunner.Then("the there should be no fine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Track fines on patron accounts")]
-        public virtual void TrackFinesOnPatronAccounts()
+        [NUnit.Framework.DescriptionAttribute("Fines for a late return")]
+        public virtual void FinesForALateReturn()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Track fines on patron accounts", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fines for a late return", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -149,63 +150,14 @@ namespace SpecFlowExercises.Features
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 5
   this.FeatureBackground();
-#line hidden
-#line 12
-    testRunner.Given("John has been fined $0.50 for a late return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
-    testRunner.When("John checks his account balance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the patron returns a book 5 days late", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
-    testRunner.Then("the balance should be $0.50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Fees and fines both get added to the balance")]
-        public virtual void FeesAndFinesBothGetAddedToTheBalance()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fees and fines both get added to the balance", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-  this.FeatureBackground();
-#line hidden
-#line 17
-    testRunner.Given("John has been fined $0.75 for a late return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 18
-    testRunner.And("John has been charged $20 for a lost book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 19
-    testRunner.When("John checks his account balance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 20
-    testRunner.Then("the balance should be $20.75", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("there should be a $1.25 fine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
