@@ -20,23 +20,22 @@ namespace SpecFlowExercises.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Fine Calculator")]
-    public partial class FineCalculatorFeature
+    [NUnit.Framework.DescriptionAttribute("Advanced Search")]
+    public partial class AdvancedSearchFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "fine_calculator.feature"
+#line 1 "advanced_search.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Fine Calculator", "  Fines need to be calculated accurately so that we’re fair to all our patrons\r\n " +
-                    " while having an incentive to return books on time.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Advanced Search", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,23 +73,14 @@ namespace SpecFlowExercises.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 5
-  #line hidden
-#line 6
-    testRunner.Given("the standard fine per day is $0.25", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("No fines for on-time returns")]
-        public virtual void NoFinesForOn_TimeReturns()
+        [NUnit.Framework.DescriptionAttribute("Exact Title Match")]
+        public virtual void ExactTitleMatch()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No fines for on-time returns", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Exact Title Match", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 3
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -110,54 +100,20 @@ namespace SpecFlowExercises.Features
             else
             {
                 this.ScenarioStart();
+#line 4
+    testRunner.When("I do an advanced search with Title \"How to Open Locks with Improvised Tools\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Field",
+                            "Value"});
+                table1.AddRow(new string[] {
+                            "Title",
+                            "How To Open Locks With Improvised Tools"});
+                table1.AddRow(new string[] {
+                            "Author",
+                            "Hans Conkel"});
 #line 5
-  this.FeatureBackground();
-#line hidden
-#line 9
-    testRunner.When("the patron returns a book on time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 10
-    testRunner.Then("the there should be no fine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Fines for a late return")]
-        public virtual void FinesForALateReturn()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fines for a late return", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 12
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 5
-  this.FeatureBackground();
-#line hidden
-#line 13
-    testRunner.When("the patron returns a book 5 days late", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 14
-    testRunner.Then("there should be a $1.25 fine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the only result should be:", ((string)(null)), table1, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
